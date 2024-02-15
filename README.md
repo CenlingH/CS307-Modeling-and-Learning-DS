@@ -1,2 +1,2 @@
-# CS307-Modeling-and-Learning-DS--UIUC
-uiuc cs307 24spring modeling and learning in data science
+# CS307 Modeling and Learning in Data Science
+cs307 24spring modeling and learning in data science
