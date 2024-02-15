@@ -3119,7 +3119,7 @@ vertical-align: -.125em;
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<div id="cell-5" class="cell" data-execution_count="30">
+<div id="cell-5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
@@ -3137,16 +3137,16 @@ vertical-align: -.125em;
 </div>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">Data</h3>
-<div id="cell-7" class="cell" data-execution_count="7">
+<div id="cell-7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>credit_train <span class="op">=</span> pd.read_csv(<span class="st">&quot;https://cs307.org/lab-02/data/credit-train.csv&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create X and y for train</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> credit_train.drop(<span class="st">&quot;Rating&quot;</span>, axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># delete the rating column</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> credit_train[<span class="st">&quot;Rating&quot;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The Credit Ratings dataset originates from the textbook “An Introduction to Statistical Learning.” The modified Credit Ratings dataset for CS 307 Lab 02 includes data for predicting individual consumer credit scores, featuring attributes such as income, age, education, gender, student status, marital status, and ethnicity.</p>
-<div id="cell-9" class="cell" data-execution_count="8">
+<div id="cell-9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>credit_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -3295,7 +3295,7 @@ vertical-align: -.125em;
 </div>
 <section id="summary-statistics" class="level4">
 <h4 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h4>
-<div id="cell-11" class="cell" data-execution_count="26">
+<div id="cell-11" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rating (Target) Statistics</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mean_rating <span class="op">=</span> y_train.mean()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>std_rating <span class="op">=</span> y_train.std()</span>
@@ -3305,7 +3305,7 @@ vertical-align: -.125em;
 Rating Standard Deviation:  157.09976929943386</code></pre>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="27">
+<div id="cell-12" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rating Statistics Based on Student Status</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>credit_notstudent <span class="op">=</span> credit_train[credit_train[<span class="st">&quot;Student&quot;</span>] <span class="op">==</span> <span class="st">&quot;No&quot;</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>credit_student <span class="op">=</span> credit_train[credit_train[<span class="st">&quot;Student&quot;</span>] <span class="op">==</span> <span class="st">&quot;Yes&quot;</span>]</span>
@@ -3327,7 +3327,7 @@ Rating Mean for Student:  344.1
 Rating Standard Deviation for Student:  146.64626686761207</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="11">
+<div id="cell-13" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rating Statistics Based on Marriage Status</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>credit_single <span class="op">=</span> credit_train[credit_train[<span class="st">&quot;Married&quot;</span>] <span class="op">==</span> <span class="st">&quot;No&quot;</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>credit_married <span class="op">=</span> credit_train[credit_train[<span class="st">&quot;Married&quot;</span>] <span class="op">==</span> <span class="st">&quot;Yes&quot;</span>]</span>
@@ -3347,7 +3347,7 @@ Rating Mean for Married:  358.2752808988764
 Rating Standard Deviation for Married:  159.8516528251666</code></pre>
 </div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="12">
+<div id="cell-14" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation with Age and Income</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;age correlation: &quot;</span>, credit_train[<span class="st">&quot;Rating&quot;</span>].corr(credit_train[<span class="st">&quot;Age&quot;</span>]))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;income correlation: &quot;</span>,</span>
@@ -3357,7 +3357,7 @@ Rating Standard Deviation for Married:  159.8516528251666</code></pre>
 income correlation:  0.7955279488315458</code></pre>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="13">
+<div id="cell-15" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Missing Proportion</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>missing_proportion <span class="op">=</span> credit_train.isnull().mean()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(missing_proportion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3376,7 +3376,7 @@ dtype: float64</code></pre>
 </section>
 <section id="visualizations" class="level4">
 <h4 class="anchored" data-anchor-id="visualizations">Visualizations</h4>
-<div id="cell-17" class="cell" data-execution_count="43">
+<div id="cell-17" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">&quot;whitegrid&quot;</span>, palette<span class="op">=</span><span class="st">&quot;pastel&quot;</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create subplots</span></span>
@@ -3418,10 +3418,10 @@ dtype: float64</code></pre>
 </section>
 <section id="models" class="level3">
 <h3 class="anchored" data-anchor-id="models">Models</h3>
-<div id="cell-20" class="cell" data-execution_count="15">
+<div id="cell-20" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find data types of X_train(7 features in total)</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>X_train.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Income       float64
 Age          float64
 Education    float64
@@ -3432,13 +3432,13 @@ Ethnicity     object
 dtype: object</code></pre>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="16">
+<div id="cell-21" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split the data into numerical and categorical</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>numeric_features <span class="op">=</span> X_train.select_dtypes(include<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>]).columns</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>categorical_features <span class="op">=</span> X_train.select_dtypes(include<span class="op">=</span>[<span class="st">&quot;object&quot;</span>]).columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this project, I processed a dataset with seven features, comprising both numerical and categorical data. I applied one-hot encoding to transform categorical variables into a binary format, making them suitable for use in the model. For numerical features, I used imputation to handle missing values and standardization to normalize their scales.</p>
-<div id="cell-23" class="cell" data-execution_count="17">
+<div id="cell-23" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define how to handle missing data and scale features for numeric and categorical features</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>numeric_transformer <span class="op">=</span> Pipeline(</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    steps<span class="op">=</span>[</span>
@@ -3453,7 +3453,7 @@ dtype: object</code></pre>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-24" class="cell" data-execution_count="18">
+<div id="cell-24" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create general preprocessor</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer(</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    transformers<span class="op">=</span>[</span>
@@ -3464,14 +3464,14 @@ dtype: object</code></pre>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I chose the K-Nearest Neighbors (KNN) model for prediction, due to its effectiveness in handling complex patterns. To optimize the model, I conducted hyperparameter tuning through grid search, focusing on the number of neighbors, weight strategies, and distance metrics.</p>
-<div id="cell-26" class="cell" data-execution_count="19">
+<div id="cell-26" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the pipeline</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model_pipeline <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Preprocessor&quot;</span>, preprocessor),</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Regressor&quot;</span>, KNeighborsRegressor())</span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-27" class="cell" data-execution_count="20">
+<div id="cell-27" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the parameter grid for grid search</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Regressor__n_neighbors&quot;</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">20</span>),  <span class="co"># set the range of k from 1 to 19</span></span>
@@ -3481,14 +3481,14 @@ dtype: object</code></pre>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Regressor__metric&quot;</span>: [<span class="st">&quot;euclidean&quot;</span>, <span class="st">&quot;manhattan&quot;</span>, <span class="st">&quot;chebyshev&quot;</span>]</span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-28" class="cell" data-execution_count="21">
+<div id="cell-28" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setup grid search with cross-validation</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>grid_search <span class="op">=</span> GridSearchCV(model_pipeline, param_grid, cv<span class="op">=</span><span class="dv">230</span>, scoring<span class="op">=</span><span class="st">&quot;neg_mean_squared_error&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-29" class="cell" data-execution_count="22">
+<div id="cell-29" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit models</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>grid_search.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <style>#sk-container-id-1 {
 
 --sklearn-color-text: black;
@@ -3904,10 +3904,10 @@ display: block;
                                  Index([&#39;Gender&#39;, &#39;Student&#39;, &#39;Married&#39;, &#39;Ethnicity&#39;], dtype=&#39;object&#39;))])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">Numeric Transformer</label><div class="sk-toggleable__content fitted"><pre>Index([&#39;Income&#39;, &#39;Age&#39;, &#39;Education&#39;], dtype=&#39;object&#39;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted"> IterativeImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.IterativeImputer.html">?<span>Documentation for IterativeImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>IterativeImputer(random_state=0)</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted"> StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">Categorical Transformer</label><div class="sk-toggleable__content fitted"><pre>Index([&#39;Gender&#39;, &#39;Student&#39;, &#39;Married&#39;, &#39;Ethnicity&#39;], dtype=&#39;object&#39;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted"> SimpleImputer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer(strategy=&#39;most_frequent&#39;)</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted"> OneHotEncoder<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(handle_unknown=&#39;ignore&#39;)</pre></div> </div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted"> KNeighborsRegressor<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.neighbors.KNeighborsRegressor.html">?<span>Documentation for KNeighborsRegressor</span></a></label><div class="sk-toggleable__content fitted"><pre>KNeighborsRegressor()</pre></div> </div></div></div></div></div></div></div></div></div></div></div>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="24">
+<div id="cell-30" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save models</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>dump(grid_search, <span class="st">&quot;credit-ratings.joblib&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>[&#39;credit-ratings.joblib&#39;]</code></pre>
 </div>
 </div>
@@ -3915,7 +3915,7 @@ display: block;
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<div id="cell-32" class="cell" data-execution_count="44">
+<div id="cell-32" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Best parameters found:&quot;</span>, grid_search.best_params_)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Lowest RMSE found:&quot;</span>, np.sqrt(<span class="op">-</span>grid_search.best_score_))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3927,8 +3927,10 @@ Lowest RMSE found: 107.11345806857459</code></pre>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>Reflecting on the model’s capacity to predict credit scores from basic personal information, its accuracy suggests a theoretical feasibility. However, setting aside performance metrics, the application of this model in real life is problematic. The inherent biases within the model, coupled with the critical nature of credit scores to individuals, highlight significant concerns. Utilizing personal information for predicting credit scores touches on privacy issues and the potential inaccuracies may not truly reflect an individual’s financial behavior, leading to unfair outcomes.</p>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>In this lab, I employed new approaches to model training, incorporating tools such as Pipeline and GridSearchCV from sklearn, while continuing to utilize the K-Nearest Neighbors (KNN) algorithm. This strategy enabled the development of a theoretically capable model that predicts credit scores based on basic personal information. While the model demonstrates technical accuracy in predicting credit scores using personal information, the ethical, legal, and social considerations it raises warrant a cautious approach to its real-life implementation. Moving forward, developing such models should involve a deeper evaluation of their societal impact, ensuring their application does not contribute to further inequity.</p>
 </section>
 </section>
 </section>
