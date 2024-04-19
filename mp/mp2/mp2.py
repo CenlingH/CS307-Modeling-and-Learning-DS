@@ -29,17 +29,12 @@ class LinearRegressor:
         X_new_b = np.c_[np.ones((X_new.shape[0], 1)), X_new]  # add x0 = 1 to each instance
         return X_new_b.dot(np.r_[self.beta_0, self.beta_1])
 
-# Example usage:
-# Create an instance of LinearRegressor
-lr = LinearRegressor()
 
-# Sample data
-X = np.array([0, 1, 2, 3, 4])
-y = np.array([0, 1, 2, 3, 4])
-
-# Fit the model
-lr.fit(X, y)
-
-# Make predictions
-predictions = lr.predict([5, 6])
-print(predictions)
+# Example usage
+X = 2 * np.random.rand(100, 1)
+y = 4 + 3 * X + np.random.randn(100, 1)
+lin_reg = LinearRegressor()
+lin_reg.fit(X, y)
+X_new = np.array([[0], [2]])
+y_pred = lin_reg.predict(X_new)
+print(y_pred)
